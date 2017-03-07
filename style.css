@@ -1,0 +1,111 @@
+body {
+	margin: auto 0;
+}
+/*Font Family*/
+.kumar {font-family: 'kumar one', Tahoma;}
+.philosophy {font-family: 'philosopher', Verdana;}
+.quick {font-family: 'quicksand', Tahoma;}
+.rubik {font-family: 'rubik', Tahoma;}
+
+/*Font Size*/
+.txt-sz-half{font-size: 0.5em;}
+.txt-sz-1{font-size: 1em;}
+.txt-sz-1half{font-size: 1.5em;}
+.txt-sz-2 {font-size: 2em;}
+
+/*Font Weight*/
+.weight-1{font-weight: 500;}
+.weight-2{font-weight: 700;}
+.weigth-3{font-weight: 900;}
+
+/*Font Color*/
+.txt-white {color: #fff;}
+.txt-black{color: #000;}
+.txt-gray{color: #666;}
+.txt-red{color: #C0392B;}
+.txt-blue{color: #2980B9;}
+.txt-yellow{color: #F7DC6F;}
+.txt-green{color: #17A589;}
+
+/*Font Case*/
+.upper{text-transform: uppercase;}
+.lower{text-transform: lowercase;}
+.capital{text-transform: capitalize;}
+
+/*Letter Spacing*/
+.lttr-1{letter-spacing: 0.1em;}
+.lttr-2{letter-spacing: 0.2em;}
+.lttr-3{letter-spacing: 0.3em;}
+
+/*Background Color*/
+.bkg-white{background-color: #fff;}
+.bkg-black{background-color: #000;}
+.bkg-gray{background-color: #666;}
+.bkg-red{background-color: #CB4335;}
+.bkg-blue{background-color: #2980B9;}
+.bkg-yellow{background-color: #D4AC0D;}
+.bkg-green{background-color: #17A589;}
+.bkg-clear{background-color: transparent;}
+
+/*Background Image and Size*/
+.bkg-img{background-image: url(images/landing.jpg);}
+.bkg-cover{background-size: cover;}
+.bkg-contain{background-size:contain;}
+
+/*Background Repeat*/
+.norepeat{background-repeat: no-repeat;}
+.repeat{background-repeat: repeat;}
+.repeat-x{background-repeat: repeat-x;}
+.repeat-y{background-repeat: repeat-y;}
+
+/*General*/
+.fleft{float: left; clear: right;}
+.fright{float: right; clear: left;}
+
+.op8 {opacity: 0.8;}
+.op7 {opacity: 0.7;}
+.op6 {opacity: 0.6;}
+
+.flow{overflow: hidden;}
+.flow-x{overflow-x: hidden;}
+.flow-y{overflow-y: hidden;}
+
+.pad-1{padding: 1em;}
+.pad-2{padding: 2em;}
+.pad-3{padding: 3em;}
+.pad-nav{padding: 0em 1.5em 0em 1.5em;}
+
+.block {display: block;}
+.inline {display: inline;}
+.in-block {display: inline-block;}
+.none{display: none;}
+
+.fullw{width: 100vw;}
+.fullh{height: 100vh;}
+
+/*Custom Column Size (100/12)*/
+.mycol1{width: 8vw;}
+.mycol2{width: 17vw;}
+.mycol3{width: 25vw;}
+.mycol4{width: 33vw;}
+.mycol5{width: 42vw;}
+.mycol6{width: 50vw;}
+.mycol7{width: 58vw;}
+.mycol8{width: 67vw;}
+.mycol9{width: 75vw;}
+.mycol10{width: 83vw;}
+.mycol11{width: 92vw;}
+
+
+.top-nav{}
+.btm-nav {}
+
+/*Site Custom*/
+.main{}
+.side{}
+
+.line{height: 3px;}
+
+a:hover{text-decoration: none;
+	color: #C0392B;
+}

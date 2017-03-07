@@ -1,0 +1,159 @@
+<?PHP
+include_once "dbconnect.php";
+include_once "mail.php";
+
+if (isset($_POST['submit'])) {
+	$name = mysqli_real_escape_string($con, $_POST['name']);
+	$email = mysqli_real_escape_string($con, $_POST['email']);
+	$message = mysqli_real_escape_string($con, $_POST['message']);
+	
+	//name can contain only alpha characters and space
+    if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
+        $error = true;
+        $name_error = "Name must contain only letters.";
+    }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = true;
+        $email_error = "Please enter a valid email address.";
+    }
+	//message can contain only alpha characters, periods, space, apostrophe, and hyphens
+	if(!preg_match("/^[a-zA-Z'. -]+$/", stripslashes($_POST['name'])) {
+		$error = true;
+		$message_error = "Messages may contain alpha characters, periods, spaces, apostrophies, and hyphens."
+	}
+	if (!$error) {
+        if(mysqli_query($con, "INSERT INTO contact(name,email,message) VALUES('" . $name . "', '" . $email . "', '" . $message . "')")) {
+            $successmsg = "Email sent successfully.";
+        } else {
+            $errormsg = "Hmm, something went wrong. Make sure your message only contains alpha characters, periods, spaces, apostrophies, and hyphens.";
+        }
+    }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Southern Home Management Solutions</title>
+<!--links-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel='stylesheet' href='style.css'>
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Kumar+One|Philosopher|Quicksand|Rubik');
+</style>
+</head>
+	
+<body class='flow-x bkg-white'>
+<!--Layout for large devices and up-->
+	<div class='container-fluid bkg-img bkg-cover norepeat hidden-md-down'>
+		<div class='row bkg-clear'>
+			<div class='col-md-9 fullh main'>
+				
+			</div>
+			<div class='col-md-3 op8 bkg-white side '>
+				<p class='txt-sz-1 txt-black philosophy text-center'>
+					<img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/10945565_837306169659294_4038504518189103649_n.jpg?oh=d74a9e98ed04a3e6abdacb77dfe2932f&oe=596B8F36" height="110px" width="220px"/>
+				</p>
+				<br>
+				<div class="line bkg-black"></div>
+				<br>
+					<strong class="upper">About Us:</strong>
+				<br>
+				<p class='txt-sz-1 text-center' alt="about us">
+					We are a new fast growing Real Estate company located in the heart of Dallas, GA. We represent both buyers and sellers in real estate transactions.
+				</p>
+				<div class="line bkg-black"></div>
+				<br>
+					<strong class="upper">location:</strong>
+				<br>
+					<address alt="address">
+					8620 Buchanan Hwy<br>
+					Dallas, GA 30157<br> 
+					P: 770-616-2577 <br>
+					E: wendyg@bellsouth.net
+					</address>
+				<div class="line bkg-black"></div>
+				<br>
+					<strong class="upper">contact:</strong>
+				<div class="row">
+					<div class="col well">
+						<form role="form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" name="signupform">
+                		<fieldset>
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" placeholder="Jane Doe"  class="form-control" />
+                        <span class="alert-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Email</label>
+                        <input type="text" name="email" placeholder="jane@example.com" class="form-control" />
+                        <span class="alert-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+                    </div>
+					
+					<div class="form-group">
+                        <label for="message">Message</label>
+						<textarea type="text" name="message" placeholder="Type message here." class="form-control"></textarea>
+                        <span class="alert-danger"><?php if (isset($message_error)) echo $message_error; ?></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="submit" value="submit" class="btn btn-primary" />
+                    </div>
+						</fieldset>
+            			</form>
+            			<span class="text-success"><?php if (isset($successmsg)) { echo $successmsg; } ?></span>
+						<span class="text-danger"><?php if (isset($errormsg)) { echo $errormsg; } ?></span>
+        			</div>
+
+				</div>
+				Copyright 2017 <a href="http://ericadperkins.com" class="txt-black upper">Erica D. Perkins</a>
+			</div>
+		</div>
+	</div>
+<!--Layout for medium devices on down-->
+	<div class='container-fluid bkg-img bkg-cover txt-black hidden-lg-up flow'>
+		<div class="row">
+			<div class="col-sm-12 col-md-12 bkg-white op8">
+				<p class='txt-sz-1 txt-black philosophy text-center'>
+					<img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/10945565_837306169659294_4038504518189103649_n.jpg?oh=d74a9e98ed04a3e6abdacb77dfe2932f&oe=596B8F36" height="110px" width="220px"/>
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="co-sm-12 col-md-8 col-md-offset-2 bkg-blue op7">
+				<br>
+					<strong class="upper weight-3">About Us:</strong>
+				<br>
+				<p class='txt-sz-1 weight-1' alt="about us">
+					We are a new fast growing Real Estate company located in the heart of Dallas, GA. We represent both buyers and sellers in real estate transactions.
+				</p>
+				<br>
+			<div class=" row line bkg-white fullw"></div>
+				
+			</div>
+		</div>
+		<div class="row">
+		<div class='col-sm-12 col-md-8 col-md-offset-2 bkg-blue op8'>
+			<br>
+				<strong class="upper">location:</strong>
+				<br>
+					<address alt="address">
+					8620 Buchanan Hwy<br>
+					Dallas, GA 30157<br> 
+					P: 770-616-2577 <br>
+					E: wendyg@bellsouth.net
+					</address>
+				<br>
+		</div>
+		</div>
+		<div class="row">
+			<nav class="navbar fixed-bottom navbar-light bg-faded text-center">
+  				<span class='inline'>Copyright 2017 <a href="http://ericadperkins.com" class="txt-black upper">Erica D. Perkins</a>
+				</span>
+			</nav>
+		</div>
+
+	</div>
+<script src='script.js'></script>	
+</body>
+</html>
